@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+// routes/login.js
+import { Router } from "express";
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('login');
+const router = Router();
+
+/* GET login page */
+router.get("/", async (req, res) => {
+  res.render("login");
 });
-
-module.exports = router;
+export default router;
