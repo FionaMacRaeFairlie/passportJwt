@@ -39,7 +39,7 @@ router.post("/login", (req, res, next) => {
         maxAge: 60 * 60 * 1000, // 1 hour
       });
     });
-    //  return res.json({ info });
+    // return res.json({ info });
     // return res.json({ message: "You have logged in successfully", user }); // Return user info or token in response body
     let admin = false;
     if (user.role === "admin") {
