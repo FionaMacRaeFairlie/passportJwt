@@ -1,0 +1,119 @@
+<html>
+  <head>
+    {{>header}}
+  </head>
+
+  <body class="container">
+    <h1 class="mb-3">Administrator Area</h1>
+
+    <!-- Login/Logout and status message -->
+    <div class="alert alert-secondary" role="alert">
+      <div class="d-flex justify-content-end align-items-center gap-2">
+
+        {{#message}}
+        {{#user}}
+          <span class="me-2">
+            Welcome, {{ user }}! {{ message }}.&nbsp;
+            You are logged in as <strong>{{ admin }}</strong>.
+          </span>
+        {{/user}}
+        {{/message}}
+
+        {{^user}}
+          <a id="login" href="/login" class="btn btn-primary">Sign in</a>
+        {{/user}}
+
+        {{#user}}
+          <a id="logout" href="/auth/logout" class="btn btn-primary">Sign out</a>
+        {{/user}}
+      </div>
+
+      </div>
+    </div>
+
+<nav
+      class="navbar bg-secondary-subtle rounded-3 px-3 py-2 mb-3"
+      aria-label="Primary"
+    >
+      <ul class="nav nav-pills gap-2">
+        <!-- Home -->
+        <li class="nav-item">
+          <a
+            href="/"
+            class="nav-link px-3 py-2 {{#nav.home}}active{{/nav.home}}"
+            aria-current="{{#nav.home}}page{{/nav.home}}"
+          >
+            Home
+          </a>
+        </li>
+
+        {{#user}}
+        <li class="nav-item">
+          <a
+            id="sitecontent"
+            href="/user/content"
+            class="nav-link px-3 py-2 {{#nav.site}}active{{/nav.site}}"
+          >
+            Main content
+          </a>
+        </li>
+        {{/user}}
+
+        {{#admin}}
+        <li class="nav-item">
+          <a
+            id="admincontent"
+            href="/admin/admin"
+            class="nav-link px-3 py-2 {{#nav.adminPage}}active{{/nav.adminPage}}"
+          >
+            Admin
+          </a>
+        </li>
+
+        {{/admin}}
+      </ul>
+    </nav>
+
+    <!-- Admin-only content -->
+    <div class="my-4 p-4 bg-light border rounded-3">
+      <h2 class="mb-3">Administrator Section</h2>
+
+      <p class="lead">
+        You are viewing the <strong>restricted administrator area</strong>.
+        Only users with the role <code>admin</code> can access this page.
+      </p>
+
+      <hr class="my-4">
+
+      <div class="mb-4">
+        <h4>What administrators can do</h4>
+        <ul>
+          <li>Manage user accounts and roles.</li>
+          <li>Access privileged information and site-wide data.</li>
+          <li>Review logs, analytics, or activity reports.</li>
+          <li>Edit or remove content across all areas of the site.</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h4>Security Notice</h4>
+        <p>
+          Administrative privileges grant full access to protected operations.
+          Handle sensitive data responsibly, and ensure actions taken here
+          comply with institutional policies.
+        </p>
+        <p class="text-danger fw-semibold">
+          Never share your credentials. Always log out when finished.
+        </p>
+      </div>
+
+      <div>
+        <h4>Navigation Tips</h4>
+        <p>
+          Use the navigation bar above to return to user pages or the public
+          landing page.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

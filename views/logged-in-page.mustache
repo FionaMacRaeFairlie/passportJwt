@@ -4,7 +4,9 @@
   </head>
 
   <body class="container">
-    <h1 class="mb-3">Landing Page</h1>
+    <h1 class="mb-3">User Area</h1>
+
+    <!-- Top alert with login status and actions -->
     <div class="alert alert-secondary" role="alert">
       <div class="d-flex justify-content-end align-items-center gap-2">
         {{#message}}
@@ -27,6 +29,7 @@
       </div>
     </div>
 
+    <!-- Primary navigation (Bootstrap pills) -->
     <nav
       class="navbar bg-secondary-subtle rounded-3 px-3 py-2 mb-3"
       aria-label="Primary"
@@ -43,82 +46,77 @@
           </a>
         </li>
 
+        <!-- Site content (current page) -->
         {{#user}}
         <li class="nav-item">
           <a
             id="sitecontent"
             href="/user/content"
             class="nav-link px-3 py-2 {{#nav.site}}active{{/nav.site}}"
+            aria-current="{{#nav.site}}page{{/nav.site}}"
           >
             Main content
           </a>
         </li>
         {{/user}}
 
+        <!-- Admin (visible only for admin users) -->
         {{#admin}}
         <li class="nav-item">
           <a
             id="admincontent"
             href="/admin/admin"
             class="nav-link px-3 py-2 {{#nav.adminPage}}active{{/nav.adminPage}}"
+            aria-current="{{#nav.adminPage}}page{{/nav.adminPage}}"
           >
             Admin
           </a>
         </li>
-
         {{/admin}}
       </ul>
     </nav>
 
+    <!-- Main content for NORMAL USERS -->
     <div class="my-4 p-4 bg-light border rounded-3">
-      <h2 class="mb-3">Welcome to this demo</h2>
-
+      <h2 class="mb-3">Welcome, Normal User</h2>
       <p class="lead">
-        This site is divided into <strong>three main areas</strong>, each
-        designed for a different type of visitor. Access depends on whether you
-        are logged in and what role you have.
+        You are viewing content available to authenticated users with the role
+        <strong><code>normalUsers</code></strong
+        >.
       </p>
+
+      <hr class="my-4" />
+
       <div class="mb-4">
-        <h4>1. Public Section (this page)</h4>
-        <p>
-          This landing page is visible to <strong>everyone</strong>, including
-          visitors who are <strong>not logged in</strong>. You can browse
-          general site information and use the navigation menu to explore
-          publicly available pages.
-        </p>
-        <p class="mb-0">
-          If you would like to see more of the site, you may
-          <a href="/login" class="link-primary">sign in</a>.
-        </p>
+        <h4>What you can do here</h4>
+        <ul class="mb-0">
+          <li>Access pages and resources available to registered users.</li>
+          <li>View your user-specific content and data.</li>
+          <li>Use features that require a signed-in session.</li>
+        </ul>
       </div>
 
       <div class="mb-4">
-        <h4>2. Registered User Area</h4>
-        <p>
-          Once you sign in with a regular account, you gain access to additional
-          content meant for users who have the role
-          <strong><code>normalUsers</code></strong
-          >.
-        </p>
-        <p>
-          In this section you can view user‑level pages, access protected
-          resources, and interact with features reserved for authenticated
-          members of the site.
+        <h4>Need more permissions?</h4>
+        <p class="mb-0">
+          Some areas of the site are restricted to administrators only. If you
+          believe you need additional access, please contact a site
+          administrator.
         </p>
       </div>
 
       <div>
-        <h4>3. Administrator Section</h4>
-        <p>
-          Users with the role <strong><code>admin</code></strong> have access to
-          the restricted administrative area.
+        <h4>Navigation tips</h4>
+        <p class="mb-1">
+          Use the navigation bar above to go back to the public pages or to
+          explore other user content.
         </p>
-        <p>
-          This section allows administrators to manage content, view site‑wide
-          data, perform privileged actions, and oversee user
-          activity.Administrator access is limited and requires elevated
-          permissions.
+        {{#admin}}
+        <p class="text-warning mb-0">
+          You have administrator rights. You can visit the admin area via the
+          <strong>Admin</strong> tab in the navigation.
         </p>
+        {{/admin}}
       </div>
     </div>
   </body>

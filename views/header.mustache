@@ -1,4 +1,22 @@
-<meta charset="utf-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<title>{{title}}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<title>{{ title }}</title>
+<style>
+  /* Bootstrap-based nav styling (kept from your public page) */
+  .nav-pills .nav-link {
+    text-decoration: none; /* no underline */
+    color: #343a40; /* gray-800 */
+    background: #fff; /* white pill */
+    border-radius: 999px; /* fully rounded */
+  }
+  .nav-pills .nav-link:hover {
+    color: #fd7e14; /* orange hover */
+    background: #f8f9fa; /* light contrast */
+  }
+  .nav-pills .nav-link.active {
+    color: #fd7e14; /* active: orange text */
+    background: #fff6eb; /* subtle orange tint */
+    border: 1px solid rgba(253, 126, 20, 0.35);
+  }
+</style>

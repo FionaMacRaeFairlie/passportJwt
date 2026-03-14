@@ -11,7 +11,6 @@ export const createDB = async (dataDir) => {
   fs.mkdirSync(dataDir, { recursive: true });
 
   const users = Datastore.create({
-    // filename: path.join(dataDir, "users.db"),
     filename: path.join(dataDir, "user.db"),
     autoload: true,
   });
@@ -25,7 +24,7 @@ export const createDB = async (dataDir) => {
   const count = await users.count({});
   if (count === 0) {
     await users.insert({
-      email: "admin@example.com",
+      email: "admin",
       password: "admin", // ⚠️ placeholder; use hashing in production
       role: "admin",
       createdAt: new Date(),

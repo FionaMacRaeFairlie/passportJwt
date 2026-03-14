@@ -17,6 +17,7 @@ import indexRouter from "./routes/index.js";
 import loginRouter from "./routes/login.js";
 import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
+import adminRouter from "./routes/admin.js";
 
 // __dirname replacement in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -59,7 +60,9 @@ app.use(passport.initialize());
 // ---- Routes ----
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
-app.use("/user", passport.authenticate("jwt", { session: false }), userRouter);
+// app.use("/user", passport.authenticate("jwt", { session: false }), userRouter);
+app.use("/user", userRouter);
+app.use("/admin", adminRouter);
 app.use("/auth", authRouter);
 
 // ---- 404 ----

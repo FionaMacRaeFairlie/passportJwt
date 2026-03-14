@@ -18,7 +18,7 @@ export class UserDAO {
   }
 
   /**
-   * Optional initializer — seed demo data if empty.
+   * Initializer — seed demo data if empty.
    * Replace with proper bcrypt hashing in production.
    */
   init = async () => {
